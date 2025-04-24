@@ -1,36 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-<title>Tradibus</title>
-<style>
-body {
-  background-image: url('https://cdn.pixabay.com/photo/2022/09/30/22/11/buildings-7490323_1280.jpg');
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-  font-family: sans-serif;
-  color: white;
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.4);
-  background-blend-mode: overlay;
-}
-h1 {
-  margin: 10;
-  font-size: 3em;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-}
-p {
-  margin:0;
-  color: #eee;
-  font-size: 1.8em; /* Taille augmentée */
-  font-weight: bold; /* Ajout de gras */
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.9); /* Ombre plus intense */
-}
-</style>
+    <title>Tradibus</title>
+    <meta name="robots" content="noindex, nofollow">
+    <style>
+      body {
+        background-image: url('https://cdn.pixabay.com/photo/2022/09/30/22/11/buildings-7490323_1280.jpg');
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: sans-serif;
+        color: white;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      body::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4); /* Couche sombre */
+        z-index: 0;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      h1, p {
+        position: relative;
+        z-index: 1;
+        opacity: 0; /* Rendre invisible avant l'animation */
+        animation: fadeIn 2s ease-in-out forwards; /* Ajout de "forwards" pour conserver l'état final */
+      }
+
+      h1 {
+        margin: 20px;
+        font-size: 4.5vh;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+      }
+
+      p {
+        margin: 0;
+        color: #eee;
+        font-size: 2.5vh;
+        font-weight: bold;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+        animation-delay: 0.5s;
+      }
+    </style>
 </head>
 <body>
 <h1>Tradi'Bus Rennes</h1>
